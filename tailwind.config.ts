@@ -10,7 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "loginbg": "url('../images/bg-image.png')"
+        "loginbg": "url('../images/bg-image.png')",
+        "chatbg": "url('../images/chat-bg.jpg')"
       },
       colors: {
         "iyte-blue": "#495284",
