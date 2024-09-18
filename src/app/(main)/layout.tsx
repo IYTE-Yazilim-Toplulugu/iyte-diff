@@ -5,17 +5,32 @@ import React, { useEffect, useState } from 'react';
 import { LayoutGrid, Sigma, MessageCircle, LibraryBig, NotepadText, Video, NotebookPen, School, BookOpenCheck } from 'lucide-react';
 import Sidebar, { SidebarItem } from '@/components/Sidebar';
 import { ThemeContext } from '@/context/Theme';
-import { usePathname } from 'next/navigation';
+import { redirect, usePathname, useRouter } from 'next/navigation';
+import { useUser } from '@/context/UserContext';
 
 export default function RootLayout({
     children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const router = useRouter();
 
   const [isDark, setIsDark] = useState<Boolean>(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState<Boolean>(true);
   const pathname = usePathname();
+
+  const { user } = useUser();
+  useEffect(() => {
+    if (user?.userRole != "STUDENT") {
+      if (user?.userRole == "INSTRUCTOR") {
+        redirect("/admin-panel");
+      }
+      else {
+        redirect("/login");
+      }
+    }
+  }, []);
+
   return (
     <main className='h-screen flex flex-col'>
       <ThemeContext.Provider value={{isDark, setIsDark, isSidebarOpen, setIsSidebarOpen}}>
@@ -86,3 +101,5 @@ export default function RootLayout({
     </main>
   )
 }
+
+

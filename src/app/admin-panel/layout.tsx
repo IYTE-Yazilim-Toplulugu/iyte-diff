@@ -2,7 +2,7 @@
 import Navbar from "@/components/navbar/Navbar";
 import Sidebar, { SidebarItem } from "@/components/Sidebar";
 import { ThemeContext } from "@/context/Theme";
-import { LayoutGrid } from "lucide-react";
+import { LayoutGrid, User } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -27,7 +27,7 @@ export default function RootLayout({
                       navigate='/admin-panel'
                     />
                     <SidebarItem
-                      icon={<LayoutGrid size={40} color='white' />}
+                      icon={<User size={40} color='white' />}
                       text='Users'
                       active={pathname == "/admin-panel/users"}
                       navigate='/admin-panel/users'
@@ -76,11 +76,11 @@ export default function RootLayout({
                       navigate='/admin-panel/past-exams'
                     />
                 </Sidebar>
+                <div className={`flex-1 p-4 transition-all duration-300 mt-16 ${isSidebarOpen ? "ml-72" : "ml-16"}`}>
+                  {children}
+                </div>
             </div>
 
-            <div className={`flex-1 p-4 transition-all  duration-300 mt-16 ${isSidebarOpen ? "ml-72" : "ml-16"}`}>
-              {children}
-            </div>
           </ThemeContext.Provider>
         </main>
     )
