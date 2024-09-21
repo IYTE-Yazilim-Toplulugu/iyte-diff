@@ -32,8 +32,13 @@ const Login = () => {
       <div className='container mx-auto max-w-md mx-2 bg-white/65 rounded-xl drop-shadow-2xl'>
         <Image src={Logo} alt='İYTE' className='w-1/2 mx-auto pt-10 drop-shadow-2xl' />
 
+        <div className='flex justify-center items-center flex-col text-black font-bold text-xl'>
+          <p>İzmir Institute of Technology</p>
+          <p>MATH255 Differential Equations Portal</p>
+        </div>
+
         <form onSubmit={handleSubmit} className='w-full h-full p-6 flex flex-col gap-3 text-black'>
-          <Input type='text' name='email' placeholder='email' value={username} setter={setUsername} />
+          <Input type='text' name='username' placeholder='username' value={username} setter={setUsername} />
           <Input type='password' name='password' placeholder='password' value={password} setter={setPassword} />
           <button type="submit" className='rounded-md bg-iyte-blue text-white p-2 mt-8'>Login</button>
         </form>

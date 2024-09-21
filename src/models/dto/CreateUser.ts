@@ -1,6 +1,5 @@
 // models/User.ts
-export interface User {
-  id: number;
+export interface CreateUserDTO {
   fullName: string;
   schoolNumber: string;
   department: string;
@@ -9,9 +8,3 @@ export interface User {
   password: string;
   userRole: "INSTRUCTOR" | "STUDENT";
 }
-
-export enum Role {
-    STUDENT, INSTRUCTOR
-}
-
-

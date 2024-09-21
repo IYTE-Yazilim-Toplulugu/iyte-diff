@@ -6,7 +6,7 @@ import IyteLogo from './IyteLogo'
 
 const Navbar = () => {
   return (
-    <nav className='fixed top-0 z-50
+    <nav className='fixed top-0 z-40
     w-full bg-iyte-red flex justify-between items-center min-h-16'>
         <div className='flex'>
           <Hamburger />

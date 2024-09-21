@@ -2,7 +2,7 @@
 import Navbar from '@/components/navbar/Navbar';
 import React, { useEffect, useState } from 'react';
 
-import { LayoutGrid, Sigma, MessageCircle, LibraryBig, NotepadText, Video, NotebookPen, School, BookOpenCheck } from 'lucide-react';
+import { LayoutGrid, Sigma, MessageCircle, LibraryBig, Layers, NotepadText, Video, NotebookPen, School, BookOpenCheck } from 'lucide-react';
 import Sidebar, { SidebarItem } from '@/components/Sidebar';
 import { ThemeContext } from '@/context/Theme';
 import { redirect, usePathname, useRouter } from 'next/navigation';
@@ -20,16 +20,16 @@ export default function RootLayout({
   const pathname = usePathname();
 
   const { user } = useUser();
-  useEffect(() => {
-    if (user?.userRole != "STUDENT") {
-      if (user?.userRole == "INSTRUCTOR") {
-        redirect("/admin-panel");
-      }
-      else {
-        redirect("/login");
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (user?.userRole != "STUDENT") {
+  //     if (user?.userRole == "INSTRUCTOR") {
+  //       redirect("/admin-panel");
+  //     }
+  //     else {
+  //       redirect("/login");
+  //     }
+  //   }
+  // }, []);
 
   return (
     <main className='h-screen flex flex-col'>
@@ -56,10 +56,16 @@ export default function RootLayout({
             navigate='/chat'
           />
           <SidebarItem
-            icon={<LibraryBig className={pathname == "/books" ? "" : "group-hover:invert"} size={40} color='white' />}
-            text='Books'
-            active={pathname == "/books"}
-            navigate='/books'
+            icon={<LibraryBig className={pathname == "/main-textbook" ? "" : "group-hover:invert"} size={40} color='white' />}
+            text='Main Textbook'
+            active={pathname == "/main-textbook"}
+            navigate='/main-textbook'
+          />
+          <SidebarItem
+            icon={<Layers className={pathname == "/resources" ? "" : "group-hover:invert"} size={40} color='white' />}
+            text='Lecture Resources'
+            active={pathname == "/resources"}
+            navigate='/resources'
           />
           <SidebarItem
             icon={<NotepadText className={pathname == "/notes" ? "" : "group-hover:invert"} size={40} color='white' />}

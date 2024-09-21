@@ -1,8 +1,5 @@
-// context/UserContext.tsx
-import React, { createContext, useContext, useState } from 'react';
-import axios from 'axios';
+import React, { createContext, useContext } from 'react';
 import { User } from '../models/User';
-import { useRouter } from 'next/navigation'; // Use 'next/navigation' for App Router
 
 interface UserContextType {
   user: User | null;

@@ -14,8 +14,8 @@ export default function Sidebar({
     return (
         <aside className={`fixed top-16 transition-all duration-300
         h-full bg-black shadow-sm ${isSidebarOpen ? "w-72" : "w-16"}`}>
-            <nav className='h-full flex flex-col justify-between'>
-                <ul className='relative z-0'>
+            <nav className='h-full flex flex-col justify-between overflow-hidden'>
+                <ul className='relative z-0 overflow-y-scroll'>
                     {children}
                 </ul>
                 <div className='bg-indigo-50 w-full flex gap-2 mb-16 relative z-10'>
@@ -43,11 +43,12 @@ export const SidebarItem = ({ icon, text, active, navigate } : { icon: JSX.Eleme
         href={navigate}
         className={`
             group
-            hover:translate-x-4
             relative flex items-center py-2 px-3 my-1 mx-1 
             font-medium rounded-md cursor-pointer 
             transition-all duration-300
-            ${active ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800 translate-x-4" : "hover:bg-indigo-50 text-gray-300"}
+            ${!isSidebarOpen && active ? "px-4" : isSidebarOpen && active ? "pl-10" : ""}
+            ${isSidebarOpen ? "hover:pl-10" : "hover:px-4"}
+            ${active ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800" : "hover:bg-indigo-50 text-gray-300"}
         `}>
             {icon}
             <span className={`w-52 ml-4 ${!active ? "group-hover:invert" : ""} ${ isSidebarOpen ? "block" : "hidden"}`}>{text}</span>
