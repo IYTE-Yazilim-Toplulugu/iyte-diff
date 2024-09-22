@@ -8,7 +8,7 @@ const PdfFileCard = ({ name, pdfId, date, user }: { name: String; pdfId: number;
         <div className='flex flex-col'>
             <p className='font-bold text-xl group-hover:underline'>{name}</p>
             {/* <p className='italic text-black/70'>{pdf}</p> */}
-            <p>{user.fullName}</p>
+            <p>{user.name}</p>
         </div>
         <p className='italic'>{date?.toUTCString()}</p>
     </a>

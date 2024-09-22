@@ -14,7 +14,7 @@ const AddStudentPopUp = () => {
     const [activeTab, setActiveTab] = useState(0);
 
     const [formData, setFormData] = useState<User | any>({
-      fullName: '',
+      name: '',
       schoolNumber: '',
       department: '',
       grade: 0,
@@ -84,8 +84,8 @@ const AddStudentPopUp = () => {
                 <input
                 required
                   type="text"
-                  name="fullName"
-                  value={formData.fullName}
+                  name="name"
+                  value={formData.name}
                   onChange={handleInputChange}
                   className="w-full p-2 border border-gray-300 rounded"
                 />

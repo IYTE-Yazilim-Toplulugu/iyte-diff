@@ -1,7 +1,7 @@
 // models/User.ts
 export interface User {
   id: number;
-  fullName: string;
+  name: string;
   schoolNumber: string;
   department: string;
   grade: number;

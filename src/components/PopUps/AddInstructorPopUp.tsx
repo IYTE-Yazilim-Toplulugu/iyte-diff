@@ -12,7 +12,7 @@ const AddInstructorPopUp = () => {
     const dataContext = useContext(DataContext);
 
     const [formData, setFormData] = useState<User | any>({
-      fullName: '',
+      name: '',
       schoolNumber: '',
       department: '',
       grade: -1,
@@ -62,8 +62,8 @@ const AddInstructorPopUp = () => {
                 <input
                 required
                   type="text"
-                  name="fullName"
-                  value={formData.fullName}
+                  name="name"
+                  value={formData.name}
                   onChange={handleInputChange}
                   className="w-full p-2 border border-gray-300 rounded"
                 />

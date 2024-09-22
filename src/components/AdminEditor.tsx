@@ -10,9 +10,10 @@ interface AdminEditorProps {
   children: React.ReactNode;
   id: number;
   type: Datatypes;
+  name: String;
 }
 
-const AdminEditor = ({ children, id, type } : Readonly<AdminEditorProps>) => {
+const AdminEditor = ({ children, id, type, name } : Readonly<AdminEditorProps>) => {
   const popupContext = useContext(PopupContext);
   const dataContext = useContext(DataContext);
 
@@ -23,6 +24,7 @@ const AdminEditor = ({ children, id, type } : Readonly<AdminEditorProps>) => {
   const handleDeleteBtn = () => {
     dataContext?.setDeleting({
       id: id,
+      name: name,
       type: type
     })
 
@@ -33,7 +35,7 @@ const AdminEditor = ({ children, id, type } : Readonly<AdminEditorProps>) => {
         <div className='flex-1  border-2 p-2'>
             {children}
         </div>
-        <div className='flex justify-center items-center gap-2'>
+        <div className='flex flex-col justify-center items-center gap-2'>
             <button onClick={handleEditBtn} className='p-3 rounded-full bg-yellow-500'><Edit2 color='white' /></button>
             <button onClick={handleDeleteBtn} className='p-3 rounded-full bg-red-500'><Trash2 color='white' /></button>
         </div>

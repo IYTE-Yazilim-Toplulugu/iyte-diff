@@ -30,6 +30,7 @@ const DeletePopup = () => {
       dataContext?.setDeleting(undefined);
     }
   };
+  
   return (
     <div onClick={handleOutsideClick} className='fixed z-50 inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 popup-overlay'>
       <div className="bg-black p-6 rounded-lg w-full max-w-md text-white">
@@ -37,6 +38,7 @@ const DeletePopup = () => {
           <p>Are you sure you want to delete the data specified below?</p>
           <ul>
             <li>id: {dataContext?.deleting?.id}</li>
+            <li>Name: {dataContext?.deleting?.name}</li>
             <li>Type: {dataContext?.deleting?.type}</li>
           </ul>
         </div>

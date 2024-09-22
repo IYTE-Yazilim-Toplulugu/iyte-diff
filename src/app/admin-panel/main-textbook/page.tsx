@@ -32,7 +32,7 @@ const MainTextbook = () => {
         {
           pdfs?.map((p, idx) => {
             return (
-              <AdminEditor type={Datatypes.PDF} id={p.id}>
+              <AdminEditor type={Datatypes.PDF} id={p.id} name={p.name}>
                 <Chapter key={idx} title={p.name} pdf={p} />
               </AdminEditor>
             )

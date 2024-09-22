@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'fullName', headerName: 'Full Name', width: 130 },
+  { field: 'name', headerName: 'Full Name', width: 130 },
   { field: 'schoolNumber', headerName: 'School Number', width: 130 },
   { field: 'department', headerName: 'Department', width: 130 },
   { field: 'grade', headerName: 'Grade', width: 130 },

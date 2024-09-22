@@ -6,5 +6,6 @@ export enum Datatypes {
 
 export interface DeletingObj {
     id: number;
-    type: Datatypes
+    type: Datatypes;
+    name: String;
 }
